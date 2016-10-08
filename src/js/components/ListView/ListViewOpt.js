@@ -10,9 +10,6 @@ export default class ListViewOpt extends React.Component {
     createList() {
 
     }
-    handleClick(event) {
-        console.log("FFFFFFFFFFF");
-    }
     handleScroll(event) {
         console.log("FOO CONSOLE LOG");
         this.setState({

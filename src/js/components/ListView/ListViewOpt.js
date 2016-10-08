@@ -4,14 +4,7 @@ import ReactDOM from "react-dom";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
 export default class ListViewOpt extends React.Component {
 
-    style = {
-        width:"500px"
-    }
-    createList() {
-
-    }
     handleScroll(event) {
-        console.log("FOO CONSOLE LOG");
         this.setState({
             scrollTop: event.target.scrollTop
         })
@@ -32,7 +25,6 @@ export default class ListViewOpt extends React.Component {
 
     render() {
         this.items = [];
-        this.createList();
         var count = 0;
         const { numRows, rowHeight, renderRowAtIndex } = this.props
         const totalHeight = rowHeight * numRows;
@@ -43,7 +35,7 @@ export default class ListViewOpt extends React.Component {
         const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20);
         let index = startIndex;
         while (index < endIndex) {
-            this.items.push(<ListGroupItem style={this.style} key={index}><Item
+            this.items.push(<ListGroupItem  key={index}><Item
                 number={index}/></ListGroupItem>);
             index++;
         }

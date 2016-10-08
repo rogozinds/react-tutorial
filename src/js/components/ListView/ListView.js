@@ -8,7 +8,7 @@ export default class ListView extends React.Component {
     }
     createList(){
         var count =0;
-        while(count<this.props.count){
+        while(count<this.props.numRows){
             this.items.push(<ListGroupItem style={this.style} key={count}><Item number={count}/></ListGroupItem>);
             count++;
         }

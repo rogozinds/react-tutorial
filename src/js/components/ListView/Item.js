@@ -22,7 +22,7 @@ export default class Item extends React.Component {
     render() {
         const n = this.getRandomInt(0,this.phrases.length-1)
         return <div>
-            {this.phrases[n]}
+            {this.props.number +" " +this.phrases[n]}
         </div>
     }
 }

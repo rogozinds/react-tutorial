@@ -24,6 +24,9 @@ module.exports = {
     filename: "client.min.js"
   },
   plugins: debug ? [] : [
+    new webpack.ProvidePlugin({
+      "React": "react",
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),

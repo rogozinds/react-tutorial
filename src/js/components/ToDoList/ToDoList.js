@@ -6,13 +6,7 @@ export default class ToDoList extends React.Component {
 
     constructor() {
         super();
-        this.state = {
-            items: [
-                "Morning exercise",
-                "Read 20 pages",
-                "Buy milk"
-            ]
-        }
+        this.state = { items: ["Morning exercise", "Read 20 pages", "Buy milk"]}
     }
 
     addItem() {

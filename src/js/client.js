@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute,hashHistory} from 'react-router';
 import ListViewLayout from "./components/Layouts/ListViewLayout";
 import ListViewOptLayout from "./components/Layouts/ListViewOptLayout";
 import ToDoList from "./components/ToDoList/ToDoList";
+import GridDemo from "./components/Grid/GridDemo";
 import HelloWorld from "./components/HelloWorld/HelloWorld"
 
 const app = document.getElementById('app');
@@ -15,6 +16,7 @@ ReactDOM.render(
                 <Route path ="todolist" component={ToDoList}> </Route>
                 <Route path="listview" component={ListViewLayout}></Route>
                 <Route path="listviewopt" component={ListViewOptLayout}></Route>
+                <Route path="grid" component = {GridDemo}></Route>
             </Route>
         </Router>
     </div>  , app

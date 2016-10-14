@@ -26,7 +26,7 @@ export default class ListViewOpt extends React.Component {
     render() {
         this.items = [];
         var count = 0;
-        const { numRows, rowHeight, renderRowAtIndex } = this.props
+        const { numRows, rowHeight, renderRowAtIndex } = this.props;
         const totalHeight = rowHeight * numRows;
         const { availableHeight, scrollTop } = this.state;
         const scrollBottom = scrollTop + availableHeight;
@@ -39,7 +39,7 @@ export default class ListViewOpt extends React.Component {
                 number={index}/></ListGroupItem>);
             index++;
         }
-        console.log("Render is done");
+
         return <div style={{ height: '100%', overflowY: 'scroll' }} onScroll={this.handleScroll.bind(this)}>
             <ListGroup style={{ paddingTop: (startIndex * rowHeight), pointerEvents: 'none', height: totalHeight }} onScroll={this.handleScroll.bind(this)}>
                 {this.items}

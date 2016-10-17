@@ -34,7 +34,6 @@ export default class Grid extends React.Component {
         this.nItems=data.length;
         return <div style={{backgroundColor:'yellow',padding:50}}>
             <Item item={data[0]}></Item>
-           <span> {this.nItems}  {data[0]['name']} </span>
         </div>
         //const totalHeight = rowHeight * numRows;
         //const { availableHeight, scrollTop } = this.state;

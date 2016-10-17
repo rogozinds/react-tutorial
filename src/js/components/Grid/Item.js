@@ -1,6 +1,6 @@
 import React,{Component,PropTypes} from "react"
 import {ListGroup, ListGroupItem} from "react-bootstrap";
-
+import Cell from "./Cell"
 export default class Item extends React.Component {
     constructor() {
         super();
@@ -11,19 +11,6 @@ export default class Item extends React.Component {
 
     }
 
-    style = {}
-
-    handleClick() {
-        let foo;
-        if(this.state) {
-            foo=this.state.isExpanded;
-        }else{
-            foo=false;
-        }
-        this.setState({
-            isExpanded: !foo
-        })
-    }
     calcVisibilityStyle(isVisible) {
         console.log(isVisible);
         if (isVisible) {
@@ -43,39 +30,20 @@ export default class Item extends React.Component {
             const value = item[key];
             if (Array.isArray(value)) {
                 for (let i of value) {
-                    children.push(<Item item={i}></Item>)
-                    //if(this.state.isExpanded) {
-                    //    cells.push(<Item item={i}></Item>)
-                    //}
+                    children.push(<Cell value={i} isExpanded={false} children={[]}></Cell>)
                 }
-                items.push(<Item item={{header:key}} isExpanded={false} isVisible={true} children={children}></Item>);
+                items.push(<Cell value={key} isExpanded={false} isVisible={true} children={children}></Cell>);
             }
             else {
-                const color = "red";
-                const cellStyle = {
-                    backgroundColor: color,
-                    visibility: this.calcVisibilityStyle(isVisible)
-                }
-                items.push(<Item item={{key:value}} isExpanded={false} isVisible={true} children={children}></Item>);
-            }
-        }
-        //prepare rendering
-        const cells=[];
-        for (let foo of items) {
-            cells.push(<tr onClick={this.handleClick.bind(foo)}>{foo.props.item["header"]}</tr>)
-            if(foo.state&&foo.state.isExpanded) {
-                for (let child of item.props.children) {
-                    for (let key of Object.keys(child)) {
-                        const value = child[key];
-                        cells.push(<td>{value}</td>);
-                    }
-                }
+                items.push(<Cell value={value} isExpanded={false} isVisible={true} children={[]}></Cell>);
             }
         }
 
-        return <tr>
-            {cells}
-        </tr>
+        return (
+        <div>
+            {items}
+        </div>
+        );
     }
 }
 

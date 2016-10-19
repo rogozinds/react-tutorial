@@ -11,12 +11,12 @@ export default class Grid extends React.Component {
         })
     }
     componentDidMount() {
-        var height=ReactDOM.findDOMNode(this).clientHeight;
-        console.log(ReactDOM.findDOMNode(this));
-        console.log(height)
-        this.setState({
-            availableHeight: height
-        })
+        //var height=ReactDOM.findDOMNode(this).clientHeight;
+        //console.log(ReactDOM.findDOMNode(this));
+        //console.log(height)
+        //this.setState({
+        //    availableHeight: height
+        //})
     }
     constructor() {
         super();

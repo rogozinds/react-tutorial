@@ -30,36 +30,32 @@ export default class Item extends React.Component {
         }
         return false;
     }
-    parseValues(item,items) {
-            let foo =this.parseValue(item);
+    parseValues(item,level,items) {
+            let foo =this.parseValue(item,level);
             items.push(foo);
     }
-    parseValue(item) {
+    parseValue(item,level) {
         if(!this.hasArray(item)) {
             let id = _.uniqueId();
-            let obj = <Cell key={id} value={item} isExpanded={false} isVisible={true}
+            let obj = <Cell key={id} value={item} level={level} isExpanded={false} isVisible={true}
                             children={[]}></Cell>;
 
             return obj
         } else {
             for (let key of Object.keys(item)) {
                 const value = item[key];
+                let id = _.uniqueId();
                 if (Array.isArray(value)) {
                     const children = [];
                     for (let child of value) {
-                        children.push(this.parseValue(child));
+                        children.push(this.parseValue(child,level+1));
                     }
-                    let id = _.uniqueId();
-                    let obj = <Cell key={id} value={key} isExpanded={false}
+                    return <Cell key={id} value={key} level={level} isExpanded={false}
                                     isVisible={true}
                                     children={children}></Cell>;
-                    return obj;
                 } else {
-                    let id = _.uniqueId();
-                    let obj = <Cell key={id} value={value} isExpanded={false} isVisible={true}
+                    return <Cell key={id} value={value} level={Level} isExpanded={false} isVisible={true}
                                     children={[]}></Cell>;
-
-                    return obj
                 }
             }
         }
@@ -69,7 +65,7 @@ export default class Item extends React.Component {
         const items = [];
 
         //construct structure
-        this.parseValues(item,items);
+        this.parseValues(item,level,items);
         //for (let key of Object.keys(item)) {
         //    const value = item[key];
         //    let cellValue=this.parseValue(value);

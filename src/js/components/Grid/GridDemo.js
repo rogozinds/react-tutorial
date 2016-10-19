@@ -22,7 +22,8 @@ export default class GridDemo extends React.Component {
                  "name": "series2/",
                  "ref": "series/2/"
              }
-             , {
+             ,
+             {
                  "group2": [{
                      "name": "film5/",
                      "ref": "films/5/"
@@ -89,7 +90,6 @@ export default class GridDemo extends React.Component {
 
     generateData() {
         for (var i = 0; i < 150; i++) {
-            const l = this.data.length;
             this.mockData.push(this.data[0]);
         }
     }

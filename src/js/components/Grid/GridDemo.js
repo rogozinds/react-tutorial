@@ -9,22 +9,24 @@ export default class GridDemo extends React.Component {
      data = [
          {
          "root": [
+
              {
-                 "name": "series/",
-                 "ref": "series/5/"
-             }, {
-                 "name": "series4/",
-                 "ref": "series/4/"
-             }, {
-                 "name": "series3/",
-                 "ref": "series/3/"
-             }, {
-                 "name": "series2/",
-                 "ref": "series/2/"
-             }
-             ,
-             {
-                 "group2": [{
+                 "group2": [{"group2_3": [
+                     {
+                         "name": "foo/",
+                         "ref": "foo/5/"
+                     }, {
+                         "name": "foo4/",
+                         "ref": "foo/4/"
+                     }, {
+                         "name": "foo3/",
+                         "ref": "foo/3/"
+                     }, {
+                         "name": "foo2/",
+                         "ref": "foo/2/"
+                     }
+                 ]},
+                     {
                      "name": "film5/",
                      "ref": "films/5/"
                  }, {
@@ -67,6 +69,19 @@ export default class GridDemo extends React.Component {
                         "ref": "series/4/_2"
                     },
                 ]
+             },
+             {
+                 "name": "series/",
+                 "ref": "series/5/"
+             }, {
+                 "name": "series4/",
+                 "ref": "series/4/"
+             }, {
+                 "name": "series3/",
+                 "ref": "series/3/"
+             }, {
+                 "name": "series2/",
+                 "ref": "series/2/"
              }
 
          ]

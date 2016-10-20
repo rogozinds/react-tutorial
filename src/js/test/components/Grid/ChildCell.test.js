@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 import ChildCell from '../../../components/Grid/ChildCell';
 
 
-describe('Component: Child Cell', ()=> {
+describe('Component: Child GroupCell', ()=> {
 
     const minProps = {item: {name: "ref"}, level: 2};
     it('setup without problems', ()=> {

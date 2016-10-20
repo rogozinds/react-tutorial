@@ -10,6 +10,7 @@ export default class Grid extends React.Component {
             scrollTop: event.target.scrollTop
         })
     }
+
     componentDidMount() {
         //var height=ReactDOM.findDOMNode(this).clientHeight;
         //console.log(ReactDOM.findDOMNode(this));
@@ -18,23 +19,30 @@ export default class Grid extends React.Component {
         //    availableHeight: height
         //})
     }
+
     constructor() {
         super();
-        this.state={
-            availableHeight:0,
-            scrollTop:0
+        this.state = {
+            availableHeight: 0,
+            scrollTop: 0
         };
     };
 
     render() {
         console.log("RENDER CALLED");
-        this.items = [];
+        const items = [];
         var count = 0;
         const { data } = this.props;
-        this.nItems=data.length;
-        return <div style={{backgroundColor:'yellow',padding:50}}>
-            <Item item={data[0]}></Item>
-        </div>
+        this.nItems = data.length;
+
+        for(let item of data) {
+            items.push(<Item item={item} />);
+        }
+        return (
+            <div style={{backgroundColor:'yellow',padding:50}}>
+                {items}
+            </div>
+        );
 
     }
 }

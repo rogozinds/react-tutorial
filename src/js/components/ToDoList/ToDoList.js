@@ -1,6 +1,5 @@
 import React from "react";
 import ToDoItem from "./ToDoItem";
-import {arrays} from "lodash";
 
 export default class ToDoList extends React.Component {
 

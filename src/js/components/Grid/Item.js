@@ -1,7 +1,7 @@
 import React,{Component,PropTypes} from "react"
 import {ListGroup, ListGroupItem} from "react-bootstrap";
-import {Util} from "lodash";
-import Cell from "./Cell"
+import * as _ from "lodash";
+import GroupCell from "./GroupCell"
 export default class Item extends React.Component {
     //constructor() {
     //    super();
@@ -37,8 +37,8 @@ export default class Item extends React.Component {
     parseValue(item,level) {
         if(!this.hasArray(item)) {
             let id = _.uniqueId();
-            let obj = <Cell key={id} value={item} level={level} isExpanded={false} isVisible={true}
-                            children={[]}></Cell>;
+            let obj = <GroupCell key={id} value={item} level={level} isExpanded={false} isVisible={true}
+                                 children={[]}></GroupCell>;
 
             return obj
         } else {
@@ -50,12 +50,12 @@ export default class Item extends React.Component {
                     for (let child of value) {
                         children.push(this.parseValue(child,level+1));
                     }
-                    return <Cell key={id} value={key} level={level} isExpanded={false}
-                                    isVisible={true}
-                                    children={children}></Cell>;
+                    return <GroupCell key={id} value={key} level={level} isExpanded={false}
+                                      isVisible={true}
+                                      children={children}></GroupCell>;
                 } else {
-                    return <Cell key={id} value={value} level={Level} isExpanded={false} isVisible={true}
-                                    children={[]}></Cell>;
+                    return <GroupCell key={id} value={value} level={Level} isExpanded={false} isVisible={true}
+                                      children={[]}></GroupCell>;
                 }
             }
         }
@@ -73,12 +73,12 @@ export default class Item extends React.Component {
         //    //if (Array.isArray(value)) {
         //    //    const children =[];
         //    //    for (let i of value) {
-        //    //        children.push(<Cell value={i} isExpanded={false} children={[]}></Cell>)
+        //    //        children.push(<GroupCell value={i} isExpanded={false} children={[]}></GroupCell>)
         //    //    }
-        //    //    items.push(<Cell value={key} isExpanded={false} isVisible={true} children={children}></Cell>);
+        //    //    items.push(<GroupCell value={key} isExpanded={false} isVisible={true} children={children}></GroupCell>);
         //    //}
         //    //else {
-        //    //    items.push(<Cell value={value} isExpanded={false} isVisible={true} children={[]}></Cell>);
+        //    //    items.push(<GroupCell value={value} isExpanded={false} isVisible={true} children={[]}></GroupCell>);
         //    //}
         //}
 

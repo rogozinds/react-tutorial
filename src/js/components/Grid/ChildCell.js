@@ -1,6 +1,6 @@
-import React,{Component,PropTypes} from "react"
+import React,{Component,PropTypes} from "react";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
-
+import * as _ from "lodash";
 export default class ChildCell extends React.Component {
     render() {
         const { item,level} = this.props;
@@ -9,7 +9,8 @@ export default class ChildCell extends React.Component {
             const value = item[key];
             const padding=10*level;
             const style={paddingLeft:padding};
-            items.push(<td style={style}>{value}</td>);
+            let id = _.uniqueId();
+            items.push(<td key={id} style={style}>{value}</td>);
         }
         return (
             <tr>

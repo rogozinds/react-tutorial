@@ -3,24 +3,15 @@ import {ListGroup, ListGroupItem} from "react-bootstrap";
 import * as _ from "lodash";
 import GroupCell from "./GroupCell"
 export default class Item extends React.Component {
-    //constructor() {
-    //    super();
-    //    this.state = {
-    //        children:[],
-    //        isExpanded: false
-    //    };
-    //
-    //}
+    constructor() {
+        super();
+        this.state = {
+            children:[],
+            isExpanded: false
+        };
 
-    calcVisibilityStyle(isVisible) {
-        console.log(isVisible);
-        if (isVisible) {
-            return 'visible';
-        }
-        else {
-            return 'hidden';
-        }
     }
+
     hasArray(item) {
         for (let key of Object.keys(item)) {
             const value = item[key];
@@ -39,7 +30,6 @@ export default class Item extends React.Component {
             let id = _.uniqueId();
             let obj = <GroupCell key={id} value={item} level={level} isExpanded={false} isVisible={true}
                                  children={[]}></GroupCell>;
-
             return obj
         } else {
             for (let key of Object.keys(item)) {
@@ -66,22 +56,6 @@ export default class Item extends React.Component {
 
         //construct structure
         this.parseValues(item,level,items);
-        //for (let key of Object.keys(item)) {
-        //    const value = item[key];
-        //    let cellValue=this.parseValue(value);
-        //    items.push(cellValue);
-        //    //if (Array.isArray(value)) {
-        //    //    const children =[];
-        //    //    for (let i of value) {
-        //    //        children.push(<GroupCell value={i} isExpanded={false} children={[]}></GroupCell>)
-        //    //    }
-        //    //    items.push(<GroupCell value={key} isExpanded={false} isVisible={true} children={children}></GroupCell>);
-        //    //}
-        //    //else {
-        //    //    items.push(<GroupCell value={value} isExpanded={false} isVisible={true} children={[]}></GroupCell>);
-        //    //}
-        //}
-
         return (
         <div>
             {items}
